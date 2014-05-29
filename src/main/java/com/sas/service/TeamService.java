@@ -1,6 +1,9 @@
 package com.sas.service;
 
+import com.sas.common.Division;
 import com.sas.common.Team;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,4 +13,5 @@ import com.sas.common.Team;
  * To change this template use File | Settings | File Templates.
  */
 public interface TeamService extends AbstractService<Team, Long> {
+    public Iterable<Team> findTeamByDivision(Division division);
 }

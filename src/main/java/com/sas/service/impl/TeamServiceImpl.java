@@ -1,5 +1,6 @@
 package com.sas.service.impl;
 
+import com.sas.common.Division;
 import com.sas.common.Team;
 import com.sas.db.repository.TeamRepository;
 import com.sas.service.TeamService;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -56,5 +58,10 @@ public class TeamServiceImpl implements TeamService {
     @Override
     public Long count() {
         return repo.count();
+    }
+
+    @Override
+    public Iterable<Team> findTeamByDivision(Division division) {
+        return repo.findByDivision(division);
     }
 }

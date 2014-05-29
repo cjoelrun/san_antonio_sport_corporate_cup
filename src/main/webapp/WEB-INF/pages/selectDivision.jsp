@@ -15,7 +15,7 @@
         window.location.href = "/sas_maven_webapp/setDivision/"+document.getElementById('selectedDivisionId').value;
     }
 </script>
-<body>
+<body style="background: #0072bc;">
 Event :
 <select id="divisionId" onchange="setDivisionId(this)">
     <c:forEach var="division" items="${divisions}">

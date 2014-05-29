@@ -1,7 +1,10 @@
 package com.sas.db.repository;
 
+import com.sas.common.Division;
 import com.sas.common.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,4 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * To change this template use File | Settings | File Templates.
  */
 public interface TeamRepository extends JpaRepository<Team, Long> {
+    public Iterable<Team> findByDivision(Division division);
 }

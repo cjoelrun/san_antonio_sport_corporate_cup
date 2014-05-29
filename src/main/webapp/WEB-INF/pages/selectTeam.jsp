@@ -16,7 +16,7 @@
     }
 </script>
 <body>
-Event :
+Team :
 <select id="teamId" onchange="setTeamId(this)">
     <%boolean firstTeam = true;%>
     <c:forEach var="team" items="${teams}">

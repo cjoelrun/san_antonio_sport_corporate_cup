@@ -9,26 +9,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>All Scores</title>
+    <title>${event.name}</title>
 </head>
-<body>
-    <h2>All Scores</h2>
+<body style="background: #0072bc;color: white; font-family: sans-serif">
+<h2>${event.name} Result</h2>
 <table>
 <tr>
     <th>Team Name</th>
-    <th>Division</th>
-    <th>Event Name</th>
     <th>Score</th>
 </tr>
-<c:forEach var="score" items="${allScores}">
-<tr>
+<c:forEach var="score" items="${eventScores}">
+<tr style="text-align: center">
     <td>${score.team.name}</td>
-    <td>${score.team.division.name}</td>
-    <td>${score.event.name}</td>
     <td>${score.score}</td>
 </tr>
 </c:forEach>
-    <a href="/sas_maven_webapp/selectEvent">Select Event</a>
+<tr>
+    <td><a href="/sas_maven_webapp/standings/division/${division.id}" style="color: navajowhite">${divsion.name} Standings</a></td>
+</tr>
+
 </table>
 </body>
 </html>

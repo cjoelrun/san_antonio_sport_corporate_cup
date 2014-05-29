@@ -70,6 +70,9 @@ public class BaseController {
     @RequestMapping(value="/selectEvent", method = RequestMethod.GET)
     public String showEvents(ModelMap model){
         Iterable<Event> allEvents = eventService.retrieveAll();
+        model.remove("eventIdSelected");
+        model.remove("divisionIdSelected");
+        model.remove("teamSelected");
         model.addAttribute("events", allEvents);
         return "selectEvent";
     }
@@ -85,10 +88,13 @@ public class BaseController {
     @RequestMapping(value="/setDivision/{divisionId}", method = RequestMethod.GET)
     public String showTeams(@PathVariable("divisionId") String divisionId, ModelMap model){
         Long divisionIdSelected = Long.valueOf(divisionId);
-        Iterable<Team> allTeams = teamService.retrieveAll();
+        Division division = divisionService.retrieve(divisionIdSelected);
+        Iterable<Team> allTeams = teamService.findTeamByDivision(division);
+        Event event = eventService.retrieve((Long)model.get("eventIdSelected"));
         List<Team> selectableTeams = new ArrayList<Team>();
         for(Team team : allTeams){
-            if(team.getDivision().getId().equals(divisionIdSelected)){
+            Score score = scoreService.findByTeamAndEvent(team, event);
+            if(score == null){
                 selectableTeams.add(team);
             }
         }
