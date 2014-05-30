@@ -20,12 +20,12 @@
 </tr>
 <c:forEach var="score" items="${teamScore}">
 <tr style="text-align: center">
-    <td><a href="/sas_maven_webapp/standings/event/${score.event.id}" style="color: navajowhite">${score.event.name}</a></td>
+    <td><a href="/sas_maven_webapp/standings/division/${team.division.id}/event/${score.event.id}" style="color: navajowhite">${score.event.name}</a></td>
     <td>${score.score}</td>
 </tr>
 </c:forEach>
 <tr><td>
-    <a href="/sas_maven_webapp/standings/division/${team.division.id}" style="color: navajowhite">Division Scores</a>
+    <a href="/sas_maven_webapp/standings/division/${team.division.id}" style="color: navajowhite">D ${team.division.id} Standings</a>
 </td></tr>
 </table>
 </body>

@@ -118,6 +118,10 @@ public class BaseController {
         Long eventId = (Long)model.get("eventIdSelected");
         logger.debug("selected event " + eventId);
         Event event = eventService.retrieve(eventId);
+        Score existingScore = scoreService.findByTeamAndEvent(selectedTeam,event);
+        if(existingScore != null){
+            return "showAllScores";
+        }
         Score scoreDb = new Score();
         scoreDb.setEvent(event);
         scoreDb.setTeam(selectedTeam);

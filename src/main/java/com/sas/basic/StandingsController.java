@@ -105,6 +105,7 @@ public class StandingsController {
         });
         model.addAttribute("event", event);
         model.addAttribute("eventScores", divisionScores);
+        model.addAttribute("division", currDevision);
         return "eventStandings";
     }
 

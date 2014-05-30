@@ -25,7 +25,7 @@
 </tr>
 </c:forEach>
 <tr>
-    <td><a href="/sas_maven_webapp/standings/division/${division.id}" style="color: navajowhite">${divsion.name} Standings</a></td>
+    <td><a href="/sas_maven_webapp/standings/division/${division.id}" style="color: navajowhite">D ${division.id} Standings</a></td>
 </tr>
 
 </table>

@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import javax.validation.constraints.NotNull;
 
 /**
@@ -27,7 +25,7 @@ public class DivisionServiceImpl implements DivisionService {
 
     @Override
     public <S extends Division> S create(@NotNull S obj) {
-        throw new NotImplementedException();
+        throw new RuntimeException("Don't use");
     }
 
     @Override
